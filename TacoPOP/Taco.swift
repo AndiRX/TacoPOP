@@ -58,4 +58,36 @@ struct Taco {
         return _condimentId
     }
     
+    init(id: Int, productName: String, shellId: Int, proteinId: Int, condimentId: Int) {
+        _id = id
+        _productName = productName
+        
+        //Taco Shell
+        
+        switch shellId {
+        case 2:
+            self._shellId = TacoShell.Corn
+        default:
+            self._shellId = TacoShell.Flour
+        }
+        
+        //Taco protein
+        switch proteinId {
+        case 2:
+            self._proteinId = TacoProtein.Chicken
+        case 3:
+            self._proteinId = TacoProtein.Brisket
+        case 4:
+            self._proteinId = TacoProtein.Fish
+        default:
+            self._proteinId = TacoProtein.Beef
+        }
+        
+        switch condimentId {
+        case 2:
+            self._condimentId = TacoCondiment.Plain
+        default:
+            self._condimentId = TacoCondiment.Loaded
+        }
+    }
 }
